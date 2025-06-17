@@ -1,25 +1,41 @@
 // Menu Mobile
-const btnMobile = document.querySelector('.btn-abrir-menu');
-const menuMobile = document.querySelector('.menu-mobile ul');
-const overlay = document.querySelector('.overlay-menu');
+const btnAbrirMenu = document.getElementById('btn-abrir-menu');
+const btnFecharMenu = document.getElementById('btn-fechar-menu');
+const menuMobile = document.getElementById('menu-mobile-content');
+const overlay = document.getElementById('overlay-menu');
 
-btnMobile.addEventListener('click', () => {
-    menuMobile.style.left = '0';
-    overlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+// Abrir menu
+btnAbrirMenu.addEventListener('click', () => {
+    menuMobile.classList.add('active');
+    overlay.classList.add('active');
+    btnAbrirMenu.classList.add('active');
 });
 
-document.querySelector('.btn-close').addEventListener('click', () => {
-    menuMobile.style.left = '-100%';
-    overlay.style.display = 'none';
-    document.body.style.overflow = 'auto';
+// Fechar menu
+btnFecharMenu.addEventListener('click', () => {
+    fecharMenu();
 });
 
+// Fechar menu ao clicar no overlay
 overlay.addEventListener('click', () => {
-    menuMobile.style.left = '-100%';
-    overlay.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    fecharMenu();
 });
+
+// Fechar menu ao clicar em um link
+const menuLinks = document.querySelectorAll('.menu-mobile nav ul li a');
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        fecharMenu();
+    });
+});
+
+function fecharMenu() {
+    menuMobile.classList.remove('active');
+    overlay.classList.remove('active');
+    btnAbrirMenu.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
 
 // Efeito de rolagem no header
 window.addEventListener('scroll', function() {
@@ -41,7 +57,7 @@ carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
 // Botões do carrossel
 nextBtn.addEventListener('click', () => {
     if (counter >= carouselImages.length - 1) return;
-    carouselSlide.style.transition = "transform 0.5s ease-in-out";
+    carouselSlide.style.transition = "transform 0.7s ease-in-out";
     counter++;
     carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
 });
@@ -51,37 +67,6 @@ prevBtn.addEventListener('click', () => {
     carouselSlide.style.transition = "transform 0.5s ease-in-out";
     counter--;
     carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-});
-
-// Loop infinito
-carouselSlide.addEventListener('transitionend', () => {
-    if (carouselImages[counter].id === 'lastClone') {
-        carouselSlide.style.transition = "none";
-        counter = carouselImages.length - 2;
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-    }
-    if (carouselImages[counter].id === 'firstClone') {
-        carouselSlide.style.transition = "none";
-        counter = carouselImages.length - counter;
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-    }
-});
-
-// Auto-slide
-let interval = setInterval(() => {
-    nextBtn.click();
-}, 5000);
-
-// Pausar no hover
-const carouselContainer = document.querySelector('.carousel-container');
-carouselContainer.addEventListener('mouseenter', () => {
-    clearInterval(interval);
-});
-
-carouselContainer.addEventListener('mouseleave', () => {
-    interval = setInterval(() => {
-        nextBtn.click();
-    }, 5000);
 });
 
 // Formulário de contato

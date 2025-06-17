@@ -17,31 +17,42 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#sobre">Sobre</a></li>
                         <li><a href="#servicos">Nossos tratamentos</a></li>
-                        <li><a href="#contato">Contato</a></li>
                     </ul>
                 </nav>
 
                 <div class="menu-mobile">
-                    <button class="btn-abrir-menu"></button>
-                    <div class="overlay-menu"></div>
-                <div class="btn-close">
-                    <ul>
-                        <li>
-                            <i class="bi bi-x-lg"></i></li>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#sobre">Sobre</a></li>
-                            <li><a href="#servicos">Nossos tratamentos</a></li>
-                            <li><a href="#contato">Contato</a></li>
-                    </ul>
-                        </div>
+                    <button class="btn-abrir-menu" id="btn-abrir-menu">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                    
+                    <div class="overlay-menu" id="overlay-menu"></div>
+                    
+                    <div class="menu-mobile-content" id="menu-mobile-content">
+                        <button class="btn-fechar-menu" id="btn-fechar-menu">
+                            <span class="close-line"></span>
+                            <span class="close-line"></span>
+                        </button>
+                        
+                        <nav>
+                            <ul>
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#sobre">Sobre</a></li>
+                                <li><a href="#servicos">Nossos tratamentos</a></li>
+                                <li><a href="#contato">Contato</a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
 
                 <section class="btn-contato">
-                    <a href="#contato"><button>CONTATO</button></a>
+                    <a href="#contato"><button class="ctt">CONTATO</button></a>        
                 </section>
             </section> <!--flex-->
         </section> <!--container-->
     </header>
+
 
     <section class="banner" id="home">
         <div class="carousel-container">
@@ -58,12 +69,8 @@
         <section class="banner-mob" id="home">
         <div class="carousel-container">
             <div class="carousel-slide">
-              <img src="img/" alt="Banner 1">
-              <img src="img/Inserir um título.png" alt="Banner 2">
-              <img src="img/3.png" alt="Banner 3">
+              <img src="img/prótese (1).png" alt="Banner 1">
             </div>
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
         </div> 
     </section>
 
@@ -103,7 +110,7 @@
 
     <section class="services" id="servicos">
         <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
+            <h2 class="section-title">NOSSOS SERVIÇOS</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <img src="https://www.clinicadavilla.com.br/wp-content/uploads/2021/02/clareamento-dental-1.jpg" alt="Clareamento Dental">
